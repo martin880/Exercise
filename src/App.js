@@ -15,7 +15,7 @@ import { Logo } from './Logo';
 
 function App() {
   return (
-    <ChakraProvider theme={theme}>
+    <ChakraProvider>
       <Navbar />
     </ChakraProvider>
   );
