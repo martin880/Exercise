@@ -1,0 +1,106 @@
+.navbarnya {
+  padding-left: 390px;
+  background-color: black;
+}
+.navbarbox {
+  top: 0;
+  position: sticky;
+  display: flex;
+  background-color: rgb(35, 35, 35);
+  color: white;
+  align-items: center;
+  flex-direction: column;
+  height: 60px;
+  justify-content: space-evenly;
+}
+.account {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bolder;
+}
+.recentlyp {
+  font-weight: bolder;
+  display: flex;
+  font-size: 24px;
+}
+.upgradeprofile {
+  display: flex;
+  padding-right: 30px;
+  gap: 15px;
+}
+.recentlylogin {
+  gap: 20px;
+  display: flex;
+  font-weight: bolder;
+  width: 1100px;
+  justify-content: space-between;
+}
+.account {
+  gap: 10px;
+  background-color: rgb(40, 39, 39);
+  border-radius: 100px;
+}
+.buttonaccount {
+  font-weight: bold;
+}
+
+.profilelogo {
+  background-color: grey;
+  border-radius: 20px;
+}
+.gridbox {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(35, 35, 35);
+}
+.grid {
+  display: grid;
+  grid-template-columns: 260px 260px 260px 260px;
+  background-color: rgb(35, 35, 35);
+  max-height: max-content;
+  gap: 20px;
+  text-align: left;
+}
+.product-image {
+  padding: 9px 0px 7px 0px;
+  display: flex;
+  gap: 5px;
+  max-height: 160px;
+  justify-content: center;
+  align-items: center;
+}
+.product-image img {
+  aspect-ratio: auto 4 / 3;
+  width: 170px;
+  height: 155px;
+}
+.lol {
+  background-color: black;
+}
+
+.product-price {
+  font-size: 18px;
+  padding-left: 15px;
+  font-weight: bolder;
+}
+.title {
+  padding-left: 15px;
+  color: white;
+  font-size: 10px;
+}
+.creator {
+  padding-left: 15px;
+  color: grey;
+  font-size: 15px;
+}
+.kuning {
+  padding-left: 8px;
+}
+.hart {
+  display: flex;
+  justify-content: right;
+}
+.arrows {
+  display: flex;
+}
