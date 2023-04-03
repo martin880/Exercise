@@ -1,23 +1,19 @@
 import React from 'react';
-import {
-  ChakraProvider,
-  Box,
-  Text,
-  Link,
-  VStack,
-  Code,
-  Grid,
-  theme,
-} from '@chakra-ui/react';
+import './css/App.css';
+import { Routes, Route } from 'react-router-dom';
+import Sidebar from './components/Sidebar';
+import HomePage from './pages/HomePage';
 import Navbar from './components/Navbar';
-import { ColorModeSwitcher } from './ColorModeSwitcher';
-import { Logo } from './Logo';
 
 function App() {
   return (
-    <ChakraProvider>
-      <Navbar />
-    </ChakraProvider>
+    <>
+      <Routes>
+        <Route path="/" element={<HomePage />}></Route>
+        <Route path="/sidebar" element={<Sidebar />}></Route>
+        <Route path="/navbar" element={<Navbar />}></Route>
+      </Routes>
+    </>
   );
 }
 

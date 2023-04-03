@@ -1,0 +1,30 @@
+* {
+  font-family: sans-serif;
+  font-weight: 700;
+  color: inherit;
+}
+.icon:hover {
+  color: white;
+}
+
+.icon2:hover {
+  color: white;
+}
+.text {
+  font-size: 0.9125rem;
+}
+
+.text:hover {
+  color: white;
+}
+.cookies:hover {
+  color: white;
+  text-decoration: underline;
+}
+.btnLang {
+  border: 1px solid #727272;
+}
+.btnLang:hover {
+  transform: scale(1.1);
+  border: 1.2px solid white;
+}
