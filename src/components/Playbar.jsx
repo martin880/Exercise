@@ -29,7 +29,7 @@ import gbr from '../components/artworkalbummanusia.jpeg';
 
 export default function Playbar() {
   return (
-    <Container className="body" margin={0} padding={0}>
+    <Container zIndex={3} className="body" margin={0} padding={0}>
       {/* <Box w="100%" h="570px"></Box> */}
 
       <Flex

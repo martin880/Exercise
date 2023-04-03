@@ -5,9 +5,9 @@ import Playbar from '../components/Playbar';
 export default function HomePage() {
   return (
     <div style={{ display: 'flex' }}>
+      <Playbar />
       <Navbar />
       <Sidebar />
-      <Playbar />
     </div>
   );
 }
