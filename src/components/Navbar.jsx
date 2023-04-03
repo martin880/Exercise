@@ -70,8 +70,8 @@ export default function Navbar() {
           </div>
           <div></div>
         </div>
+        <Test />
       </div>
-      <Test />
     </div>
   );
 }
