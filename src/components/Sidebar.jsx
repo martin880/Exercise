@@ -159,6 +159,7 @@ export default function Sidebar() {
               className="cookies"
               color={'#B3B3B3'}
               marginLeft={'10px'}
+              fontWeight={'10px'}
               fontSize={'smaller'}
               textAlign={'center'}
               cursor={'pointer'}
