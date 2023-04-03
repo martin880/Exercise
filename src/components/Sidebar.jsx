@@ -20,7 +20,7 @@ import { BiGlobe } from 'react-icons/bi';
 
 export default function Sidebar() {
   return (
-    <Box w="246px" h="100vh" position={'absolute'} bg="black">
+    <Box zIndex={'2'} w="246px" h="100vh" position={'absolute'} bg="black">
       <Container>
         <Flex>
           <Image

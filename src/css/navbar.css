@@ -1,5 +1,6 @@
 .navbarnya {
   padding-left: 390px;
+  z-index: -1;
   background-color: black;
 }
 .navbarbox {
