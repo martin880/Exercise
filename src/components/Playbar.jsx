@@ -25,7 +25,7 @@ import { BsPip } from 'react-icons/bs';
 import { TbMicrophone2, TbDevices2 } from 'react-icons/tb';
 import { HiOutlineQueueList } from 'react-icons/hi2';
 import { SlVolume2 } from 'react-icons/sl';
-import gbr from '../components/artworkalbummanusia.jpeg';
+import gbr from '../asset/artworkalbummanusia.jpeg';
 
 export default function Playbar() {
   return (

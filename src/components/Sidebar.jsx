@@ -1,12 +1,4 @@
-import {
-  Box,
-  Container,
-  Icon,
-  Text,
-  Button,
-  Card,
-  CardBody,
-} from '@chakra-ui/react';
+import { Box, Container, Icon, Text, Button } from '@chakra-ui/react';
 import { Image, Flex } from '@chakra-ui/react';
 import logo from '../img/Spotify_Logo_RGB_White.png';
 import {
@@ -127,19 +119,15 @@ export default function Sidebar() {
         </Container>
         <Container>
           <Flex>
-            <Card>
-              <CardBody>
-                <Icon
-                  className="icon2"
-                  as={BsHeartFill}
-                  margin={'20px 20px'}
-                  color={'#B3B3B3'}
-                  w={'20px'}
-                  h={'20px'}
-                  cursor={'pointer'}
-                ></Icon>
-              </CardBody>
-            </Card>
+            <Icon
+              className="icon"
+              as={BsHeartFill}
+              margin={'20px 20px'}
+              color={'#B3B3B3'}
+              w={'20px'}
+              h={'20px'}
+              cursor={'pointer'}
+            ></Icon>
             <Text
               className="text"
               color={'#B3B3B3'}
