@@ -1,10 +1,10 @@
 .navbarnya {
-  /* padding-left: 264px; */
   z-index: -1;
   background-color: black;
   width: 100vw;
 }
 .navbarbox {
+  padding-left: 264px;
   top: 0;
   /* left: 0; */
   position: sticky;
@@ -29,9 +29,15 @@
   font-size: 24px;
 }
 .upgradeprofile {
-  display: flex;
+  /* display: flex;
+  padding-top: 15px;
   padding-right: 30px;
-  gap: 15px;
+  gap: 15px; */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bolder;
 }
 .recentlylogin {
   gap: 20px;
@@ -114,4 +120,5 @@
 }
 .arrows {
   display: flex;
+  padding-top: 15px;
 }

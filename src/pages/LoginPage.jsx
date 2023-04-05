@@ -17,9 +17,13 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 import '../css/Login.css';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { auth_type } from '../redux/types';
 
 export default function LoginPage() {
   const nav = useNavigate();
+  // eslint-disable-next-line
+  const dispatch = useDispatch();
 
   const [account, setAccount] = useState({
     email: '',
@@ -40,6 +44,13 @@ export default function LoginPage() {
   const [seePassword, setSeePassword] = useState(false);
 
   function login() {
+    dispatch({
+      type: auth_type.login,
+      payload: account,
+    });
+
+    localStorage.setItem('user', JSON.stringify(account));
+
     nav('/');
   }
 
@@ -180,7 +191,7 @@ export default function LoginPage() {
             <Flex flexDir={'column'} gap={'5px'}>
               <Box
                 textDecoration={'underline'}
-                fontSize={'10'}
+                // fontSize={'20'}
                 fontWeight={'hairline'}
                 cursor={'pointer'}
               >
