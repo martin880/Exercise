@@ -29,18 +29,18 @@
   font-size: 24px;
 }
 .upgradeprofile {
-  /* display: flex;
+  display: flex;
   padding-top: 15px;
   padding-right: 30px;
-  gap: 15px; */
+  gap: 15px;
 
-  display: flex;
+  /* display: flex;
   justify-content: center;
   align-items: center;
-  font-weight: bolder;
+  font-weight: bolder; */
 }
 .recentlylogin {
-  gap: 20px;
+  gap: 15px;
   display: flex;
   font-weight: bolder;
   width: 999px;

@@ -20,7 +20,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { auth_type } from '../redux/types';
 
-export default function LoginPage() {
+export default function LoginPage(props) {
   const nav = useNavigate();
   // eslint-disable-next-line
   const dispatch = useDispatch();
@@ -33,6 +33,14 @@ export default function LoginPage() {
   useEffect(() => {
     console.log('ada ketikan password baru');
   }, [account.password]);
+
+  // Proteksi apabila user sudah login tidak bisa kembali ke login page
+  useEffect(() => {
+    // const user = JSON.parse(localStorage.getItem('user'));
+    // if (user?.email && user?.password) {
+    //   return nav('/');
+    // }
+  }, []);
 
   function inputHandler(event) {
     const { value, id } = event.target;
@@ -191,7 +199,7 @@ export default function LoginPage() {
             <Flex flexDir={'column'} gap={'5px'}>
               <Box
                 textDecoration={'underline'}
-                // fontSize={'20'}
+                fontSize={'14px'}
                 fontWeight={'hairline'}
                 cursor={'pointer'}
               >

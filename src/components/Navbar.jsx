@@ -3,10 +3,20 @@ import { Button, Icon } from '@chakra-ui/react';
 import { CgProfile } from 'react-icons/cg';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import Test from '../components/Exercise';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { auth_type } from '../redux/types';
 export default function Navbar() {
   const userSelector = useSelector(state => state.auth);
 
+  const dispatch = useDispatch();
+  const nav = useNavigate();
+
+  function logout() {
+    dispatch({ type: auth_type.logout });
+    localStorage.removeItem('user');
+    nav('/login');
+  }
   return (
     <div>
       <div className="navbarnya">
@@ -57,18 +67,9 @@ export default function Navbar() {
                   as={CgProfile}
                   style={{ width: '25px', height: '25px' }}
                   cursor={'pointer'}
+                  onClick={logout}
                 />
                 {userSelector?.email}
-                {/* <Select
-                  borderColor={'blackAlpha.50'}
-                  className="buttonaccount"
-                  size={'sm'}
-                  placeholder="Name"
-                >
-                  <option value="option1">Option 1</option>
-                  <option value="option2">Option 2</option>
-                  <option value="option3">Option 3</option>
-                </Select> */}
               </div>
             </div>
           </div>
