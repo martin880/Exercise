@@ -1,0 +1,121 @@
+{
+  "user": [
+    {
+      "id": 1,
+      "name": "test",
+      "email": "test@mail.com",
+      "password": "12345678",
+      "birthdate": "",
+      "gender": "Male"
+    },
+    {
+      "id": 2,
+      "name": "test2",
+      "email": "test2@mail.com",
+      "password": "12345678",
+      "birthdate": "",
+      "gender": "Female"
+    },
+    {
+      "name": "ujang",
+      "email": "test3@mail.com",
+      "password": "12345678",
+      "birthdate": "",
+      "gender": "Female",
+      "id": 3
+    },
+    {
+      "email": "martinlumbangaol880@gmail.com",
+      "name": "martin880",
+      "password": "987654321",
+      "gender": "Male",
+      "birthdate": "1991-04-26T17:00:00.000Z",
+      "id": 4
+    },
+    {
+      "email": "martinlumbangaol881@gmail.com",
+      "name": "martin881",
+      "password": "188188188",
+      "gender": "Male",
+      "birthdate": "1994-11-29T17:00:00.000Z",
+      "id": 5
+    }
+  ],
+  "todo": [
+    {
+      "id": 1
+    },
+    {
+      "date": "2023-04-11",
+      "judul": "a",
+      "desc": "b",
+      "id": 2
+    },
+    {
+      "date": "2023-04-05",
+      "judul": "saxasdsqd",
+      "desc": "sdsqdsa",
+      "id": 3
+    }
+  ],
+  "musics": [
+    {
+      "id": 1,
+      "title": "Dear God",
+      "singer": "Avenged Sevenfold",
+      "src": "Avenged Sevenfold - Dear God [Official Music Video].mp3",
+      "img": "https://www.bmi.com/cache/images/musicworld/avenged_sevenfold_1_500_770_436_70_s.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Seize The Day",
+      "singer": "Avenged Sevenfold",
+      "src": "Avenged Sevenfold - Seize The Day [Official Music Video].mp3",
+      "img": "https://www.bmi.com/cache/images/musicworld/avenged_sevenfold_1_500_770_436_70_s.jpg"
+    },
+    {
+      "id": 3,
+      "title": "I Live My Life for You",
+      "singer": "Firehouse",
+      "src": "Firehouse - I Live My Life for You (Official Video).mp3",
+      "img": "https://assets-a1.kompasiana.com/statics/crawl/552fbf730423bdbb658b4567.jpeg"
+    },
+    {
+      "id": 4,
+      "title": "The Reason",
+      "singer": "Hoobastank",
+      "src": "Hoobastank - The Reason (Official Music Video).mp3",
+      "img": "https://awsimages.detik.net.id/community/media/visual/2023/03/18/keterangan-fotoist-hoobastank-akan-konser-di-mandiri-deliland-festival_43.jpeg?w=1200"
+    }
+  ],
+  "playlist": [
+    {
+      "id": 1,
+      "type": "",
+      "createdBy": "spotify",
+      "imgURL": "https://dailymix-images.scdn.co/v2/img/ab6761610000e5eb016288add2edec88ecd87e83/1/en/default",
+      "playlist": "Daily Mix 1",
+      "desc": "Avenged Sevenfold, Hoobastank, Firehouse, and many more",
+      "list": [
+        {
+          "title": "Dear God",
+          "singer": "Avenged Sevenfold",
+          "src": "Avenged Sevenfold - Dear God [Official Music Video].mp3",
+          "img": "https://www.bmi.com/cache/images/musicworld/avenged_sevenfold_1_500_770_436_70_s.jpg"
+        },
+        {
+          "title": "I Live My Life for You",
+          "singer": "Firehouse",
+          "src": "Firehouse - I Live My Life for You (Official Video).mp3",
+          "img": "https://assets-a1.kompasiana.com/statics/crawl/552fbf730423bdbb658b4567.jpeg"
+        },
+        {
+          "title": "Hoobastank",
+          "singer": "The Reason",
+          "src": "Hoobastank - The Reason (Official Music Video).mp3",
+          "img": "https://i.scdn.co/image/ab67616d0000b273895ef71f3b84221075ac06f5"
+        }
+      ]
+    }
+  ]
+}

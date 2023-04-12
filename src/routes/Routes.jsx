@@ -1,6 +1,7 @@
 import { Route } from 'react-router-dom';
 import HomePage from '../pages/HomePage';
 import LoginPage from '../pages/LoginPage';
+import RegisterPage from '../pages/RegisterPage';
 import ProtectedPage from './ProtectedPage';
 import Sidebar from '../components/Sidebar';
 import Navbar from '../components/Navbar';
@@ -45,6 +46,15 @@ const routes = [
     element={
       <ProtectedPage guestOnly={true}>
         <Playbar />
+      </ProtectedPage>
+    }
+  />,
+
+  <Route
+    path="/register"
+    element={
+      <ProtectedPage guestOnly={true}>
+        <RegisterPage />
       </ProtectedPage>
     }
   />,

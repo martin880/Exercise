@@ -6,6 +6,7 @@ import Test from '../components/Exercise';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { auth_type } from '../redux/types';
+
 export default function Navbar() {
   const userSelector = useSelector(state => state.auth);
 
@@ -69,7 +70,7 @@ export default function Navbar() {
                   cursor={'pointer'}
                   onClick={logout}
                 />
-                {userSelector?.email}
+                {userSelector?.name}
               </div>
             </div>
           </div>

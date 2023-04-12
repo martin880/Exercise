@@ -19,6 +19,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { auth_type } from '../redux/types';
+import axios from 'axios';
 
 export default function LoginPage(props) {
   const nav = useNavigate();
@@ -31,7 +32,7 @@ export default function LoginPage(props) {
   });
 
   useEffect(() => {
-    console.log('ada ketikan password baru');
+    // console.log('ada ketikan password baru');
   }, [account.password]);
 
   // Proteksi apabila user sudah login tidak bisa kembali ke login page
@@ -51,15 +52,24 @@ export default function LoginPage(props) {
 
   const [seePassword, setSeePassword] = useState(false);
 
-  function login() {
-    dispatch({
-      type: auth_type.login,
-      payload: account,
-    });
-
-    localStorage.setItem('user', JSON.stringify(account));
-
-    nav('/');
+  // karena butuh waktu untuk mendapatkan data dari API maka gunakan async function
+  async function login() {
+    await axios
+      .get('http://localhost:2000/user', {
+        params: { email: account.email, password: account.password },
+      })
+      .then(res => {
+        if (res.data.length) {
+          dispatch({
+            type: auth_type.login,
+            payload: res.data[0],
+          });
+          localStorage.setItem('user', JSON.stringify(res.data[0]));
+          return nav('/');
+        } else {
+          alert('email/password salah');
+        }
+      });
   }
 
   return (
@@ -82,6 +92,7 @@ export default function LoginPage(props) {
           gap={'10px'}
           color={'white'}
           paddingX={'10px'}
+          pb={'10%'}
         >
           <Center
             w="100%"

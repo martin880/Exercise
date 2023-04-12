@@ -4,11 +4,24 @@ import Playbar from '../components/Playbar';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Center, Spinner } from '@chakra-ui/react';
+import axios from 'axios';
 
 export default function HomePage() {
   let nav = useNavigate();
 
   const [loading, setLoading] = useState(true);
+
+  const [playlist, setPlaylist] = useState([]);
+
+  async function fetchData() {
+    await axios
+      .get('http://localhost:2000/musics')
+      .then(res => setPlaylist(res.data));
+  }
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   useEffect(() => {
     // const user = JSON.parse(localStorage.getItem('user'));
@@ -26,7 +39,7 @@ export default function HomePage() {
         </Center>
       ) : (
         <div style={{ display: 'flex' }}>
-          <Playbar />
+          <Playbar key="playbar" playlist={playlist} />
           <Navbar />
           <Sidebar />
         </div>
