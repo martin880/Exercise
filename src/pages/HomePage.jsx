@@ -3,7 +3,7 @@ import Sidebar from '../components/Sidebar';
 import Playbar from '../components/Playbar';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Center, Spinner } from '@chakra-ui/react';
+import { Center, Spinner, Box, Flex } from '@chakra-ui/react';
 import axios from 'axios';
 
 export default function HomePage() {
@@ -13,10 +13,15 @@ export default function HomePage() {
 
   const [playlist, setPlaylist] = useState([]);
 
+  const [homeplaylist, setHomePlaylist] = useState([]);
+
   async function fetchData() {
     await axios
       .get('http://localhost:2000/musics')
       .then(res => setPlaylist(res.data));
+    await axios
+      .get('http://localhost:2000/playlist')
+      .then(res => setHomePlaylist(res.data));
   }
 
   useEffect(() => {
@@ -38,11 +43,13 @@ export default function HomePage() {
           <Spinner size={'xl'} />
         </Center>
       ) : (
-        <div style={{ display: 'flex' }}>
-          <Playbar key="playbar" playlist={playlist} />
-          <Navbar />
-          <Sidebar />
-        </div>
+        <Box>
+          <Flex>
+            <Playbar key="playbar" playlist={playlist} />
+            <Navbar setPlaylist={setPlaylist} data={homeplaylist} />
+            <Sidebar />
+          </Flex>
+        </Box>
       )}
     </>
   );

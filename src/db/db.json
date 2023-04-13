@@ -116,6 +116,34 @@
           "img": "https://i.scdn.co/image/ab67616d0000b273895ef71f3b84221075ac06f5"
         }
       ]
+    },
+    {
+      "id": 2,
+      "type": "",
+      "createdBy": "spotify",
+      "imgURL": "https://dailymix-images.scdn.co/v2/img/ab6761610000e5eb016288add2edec88ecd87e83/1/en/default",
+      "playlist": "Daily Mix 2",
+      "desc": "Hoobastank, Firehouse,Avenged Sevenfold, and many more",
+      "list": [
+        {
+          "title": "I Live My Life for You",
+          "singer": "Firehouse",
+          "src": "Firehouse - I Live My Life for You (Official Video).mp3",
+          "img": "https://assets-a1.kompasiana.com/statics/crawl/552fbf730423bdbb658b4567.jpeg"
+        },
+        {
+          "title": "Hoobastank",
+          "singer": "The Reason",
+          "src": "Hoobastank - The Reason (Official Music Video).mp3",
+          "img": "https://i.scdn.co/image/ab67616d0000b273895ef71f3b84221075ac06f5"
+        },
+        {
+          "title": "Dear God",
+          "singer": "Avenged Sevenfold",
+          "src": "Avenged Sevenfold - Dear God [Official Music Video].mp3",
+          "img": "https://www.bmi.com/cache/images/musicworld/avenged_sevenfold_1_500_770_436_70_s.jpg"
+        }
+      ]
     }
   ]
 }

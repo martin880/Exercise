@@ -1,13 +1,18 @@
 import '../css/navbar.css';
-import { Button, Icon } from '@chakra-ui/react';
+import { Button, Icon, Box, Flex } from '@chakra-ui/react';
 import { CgProfile } from 'react-icons/cg';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
-import Test from '../components/Exercise';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { auth_type } from '../redux/types';
+import { useEffect } from 'react';
+import ContentLoad from './Content';
 
-export default function Navbar() {
+export default function Navbar(props) {
+  useEffect(() => {
+    console.log(props.data);
+  }, [props.data]);
+
   const userSelector = useSelector(state => state.auth);
 
   const dispatch = useDispatch();
@@ -49,34 +54,40 @@ export default function Navbar() {
                 />
               </div>
             </div>
-            <div className="upgradeprofile">
-              <Button
-                borderColor={'grey'}
-                colorScheme="grey"
-                variant="outline"
-                borderRadius={'100px'}
-                size={'sm'}
-                fontSize={'14px'}
-                fontWeight={'bold'}
-                backgroundColor={'black'}
-              >
-                Upgrade
-              </Button>
-              <div className="account">
-                <Icon
-                  className="profilelogo"
-                  as={CgProfile}
-                  style={{ width: '25px', height: '25px' }}
-                  cursor={'pointer'}
-                  onClick={logout}
-                />
-                {userSelector?.name}
+            <Box>
+              <div className="upgradeprofile">
+                <Flex>
+                  <Button
+                    borderColor={'grey'}
+                    colorScheme="grey"
+                    variant="outline"
+                    borderRadius={'100px'}
+                    size={'sm'}
+                    fontSize={'14px'}
+                    fontWeight={'bold'}
+                    backgroundColor={'black'}
+                  >
+                    Upgrade
+                  </Button>
+                </Flex>
+                <Flex>
+                  <div className="account">
+                    <Icon
+                      className="profilelogo"
+                      as={CgProfile}
+                      style={{ width: '25px', height: '25px' }}
+                      cursor={'pointer'}
+                      onClick={logout}
+                    />
+                    {userSelector?.name}
+                  </div>
+                </Flex>
               </div>
-            </div>
+            </Box>
           </div>
           <div></div>
         </div>
-        <Test />
+        <ContentLoad data={props.data} setPlaylist={props.setPlaylist} />
       </div>
     </div>
   );

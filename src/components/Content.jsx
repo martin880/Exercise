@@ -1,7 +1,11 @@
-import { calc } from '@chakra-ui/react';
+import { Box, Flex } from '@chakra-ui/react';
+import { useEffect } from 'react';
 
-export default function Test() {
-  const arr = [
+export default function ContentLoad(props) {
+  useEffect(() => {
+    console.log(props.data);
+  }, [props.data]);
+  const data1 = [
     {
       image:
         'https://parade.com/.image/t_share/MTkwNTgxMjYyNzA0NzE1NjQ0/joan-jett-runaways.jpg',
@@ -103,10 +107,10 @@ export default function Test() {
   ];
 
   return (
-    <div className="lol">
-      {/* <div className="emptybox"></div> */}
-      <div className="gridbox">
-        <div
+    <Box className="lol">
+      {/* <Box className="emptybox"></Box> */}
+      <Box className="gridbox">
+        <Box
           style={{
             fontSize: '23px',
             fontWeight: 'bolder',
@@ -117,35 +121,37 @@ export default function Test() {
           }}
         >
           Recently played
-        </div>
-        <div className="grid">
-          {arr.map((val, idx) => (
-            <Desc {...val} />
-          ))}
-        </div>
-      </div>
-    </div>
+        </Box>
+        <Flex>
+          <Box className="grid" cursor={'pointer'}>
+            {props?.data?.map((val, idx) => (
+              <Desc {...val} setPlaylist={props.setPlaylist} />
+            ))}
+          </Box>
+        </Flex>
+      </Box>
+    </Box>
   );
 }
 
 function Desc(props) {
   return (
-    <div>
-      <div
+    <Box onClick={() => props?.setPlaylist(props.list)}>
+      <Box
         className="logo2"
         style={!props.highlight ? { justifyContent: 'end' } : null}
-      ></div>
-      <div className="bungkus">
-        <div className="product-image">
-          <img src={props.image} alt="member" />
-        </div>
-        <div className="kuning">
-          <div className="title" style={{ fontSize: '18px' }}>
-            {props.title}
-          </div>
-          <div className="creator">{props.creator}</div>
-        </div>
-      </div>
-    </div>
+      ></Box>
+      <Box className="bungkus">
+        <Box className="product-image">
+          <img src={props.imgURL} alt="member" />
+        </Box>
+        <Box className="kuning">
+          <Box className="title" style={{ fontSize: '18px' }}>
+            {props.playlist}
+          </Box>
+          <Box className="creator">{props.desc}</Box>
+        </Box>
+      </Box>
+    </Box>
   );
 }

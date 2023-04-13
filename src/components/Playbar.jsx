@@ -42,9 +42,10 @@ export default function Playbar(props) {
   const [currentTime, setCurrentTime] = useState(0);
 
   useEffect(() => {
-    console.log(props.playlist);
-    soundTrack();
-  }, []);
+    // console.log(props.playlist);
+    changePlaylist();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [props.playlist]);
 
   function soundTrack() {
     if (props.playlist?.length) {
@@ -72,6 +73,7 @@ export default function Playbar(props) {
 
   useEffect(() => {
     updateTime();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentTime]);
 
   async function updateTime() {
@@ -102,6 +104,17 @@ export default function Playbar(props) {
       setPause(false);
       updateTime();
     });
+  }
+
+  function changePlaylist() {
+    setTimeout(() => setCurrentTime(audio?.currentTime), 500);
+
+    if (audio.src) {
+      setCounter(0);
+      changeSong(0);
+    } else {
+      soundTrack();
+    }
   }
 
   return (
