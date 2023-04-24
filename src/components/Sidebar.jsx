@@ -1,4 +1,18 @@
-import { Box, Container, Icon, Text, Button } from '@chakra-ui/react';
+import {
+  Box,
+  Container,
+  Icon,
+  Text,
+  Button,
+  useDisclosure,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  // ModalHeader,
+  // ModalFooter,
+  // ModalBody,
+  // ModalCloseButton,
+} from '@chakra-ui/react';
 import { Image, Flex } from '@chakra-ui/react';
 import logo from '../img/Spotify_Logo_RGB_White.png';
 import {
@@ -6,11 +20,20 @@ import {
   BsHouseDoorFill,
   BsPlusSquareFill,
   BsSearch,
+  BsFillFileMusicFill,
 } from 'react-icons/bs';
 import { VscLibrary } from 'react-icons/vsc';
 import { BiGlobe } from 'react-icons/bi';
+import { CreatePlaylist } from '../components/Modal';
+import { useEffect } from 'react';
 
-export default function Sidebar() {
+export default function Sidebar(props) {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  useEffect(() => {
+    console.log(props.sidebarPlaylist);
+  }, [props.sidebarPlaylist]);
+
   return (
     <Box zIndex={'2'} w="264px" maxH="100vh" position={'absolute'} bg="black">
       <Container>
@@ -31,8 +54,8 @@ export default function Sidebar() {
           <Flex>
             <Icon
               className="icon"
-              as={BsHouseDoorFill}
               margin={'20px 20px'}
+              as={BsHouseDoorFill}
               color={'#B3B3B3'}
               w={'20px'}
               h={'20px'}
@@ -96,7 +119,13 @@ export default function Sidebar() {
       </Box>
       <Box margin={'20px 0px'}>
         <Container>
-          <Flex>
+          <Flex onClick={onOpen}>
+            <Modal isOpen={isOpen} onClose={onClose}>
+              <ModalOverlay />
+              <ModalContent playlist={props.playlist}>
+                <CreatePlaylist onClose={onClose} />
+              </ModalContent>
+            </Modal>
             <Icon
               className="icon"
               as={BsPlusSquareFill}
@@ -106,6 +135,7 @@ export default function Sidebar() {
               h={'20px'}
               cursor={'pointer'}
             ></Icon>
+
             <Text
               className="text"
               color={'#B3B3B3'}
@@ -117,6 +147,7 @@ export default function Sidebar() {
             </Text>
           </Flex>
         </Container>
+
         <Container>
           <Flex>
             <Icon
@@ -136,6 +167,33 @@ export default function Sidebar() {
               cursor={'pointer'}
             >
               Liked Songs
+            </Text>
+          </Flex>
+        </Container>
+      </Box>
+      <Box>
+        <Container>
+          <Flex>
+            <Icon
+              className="icon"
+              as={BsFillFileMusicFill}
+              margin={'20px 20px'}
+              color={'#B3B3B3'}
+              w={'20px'}
+              h={'20px'}
+              cursor={'pointer'}
+            ></Icon>
+            <Text
+              className="text"
+              color={'#B3B3B3'}
+              textAlign={'center'}
+              marginBottom={'10px'}
+              marginBlock={'20px 0px'}
+              cursor={'pointer'}
+            >
+              {props.sidebarPlaylist?.map(val => (
+                <SideBar {...val} />
+              ))}
             </Text>
           </Flex>
         </Container>
@@ -186,5 +244,12 @@ export default function Sidebar() {
         </Container>
       </Box>
     </Box>
+  );
+}
+
+function SideBar(props) {
+  return (
+    // <Box onClick={() => props?.setPlaylist(props.list)}>{props.playlist}</Box>
+    <Box>{props.playlist}</Box>
   );
 }

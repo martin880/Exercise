@@ -1,127 +1,55 @@
-import { Box, Flex } from '@chakra-ui/react';
+import { Box, Flex, Card, CardBody, Image } from '@chakra-ui/react';
 import { useEffect } from 'react';
+import '../css/All.css';
+import { useSelector } from 'react-redux';
 
 export default function ContentLoad(props) {
   useEffect(() => {
     console.log(props.data);
   }, [props.data]);
-  const data1 = [
-    {
-      image:
-        'https://parade.com/.image/t_share/MTkwNTgxMjYyNzA0NzE1NjQ0/joan-jett-runaways.jpg',
-      price: 100000,
-      title: 'Jacksepticeye Mix',
-      creator: 'Jacksepticeye',
-    },
-    {
-      image:
-        'https://w0.peakpx.com/wallpaper/36/216/HD-wallpaper-music-rock-band-bands.jpg',
-      price: 200000,
-      title: 'Moistcr1tikal',
-      creator: 'Hondo',
-    },
-    {
-      image:
-        'https://media.istockphoto.com/id/1287491417/vector/rock-music-emblems-retro-label-badge.jpg?s=612x612&w=0&k=20&c=EbuGy-YFw2HgL2iLi8iHadAGf2NyOblAypbjtcauX_A=',
-      price: 300000,
-      title: 1998,
-      creator: 'Hondo',
-    },
-    {
-      image:
-        'https://media.istockphoto.com/id/1287491417/vector/rock-music-emblems-retro-label-badge.jpg?s=612x612&w=0&k=20&c=EbuGy-YFw2HgL2iLi8iHadAGf2NyOblAypbjtcauX_A=',
-      price: 400000,
-      title: 1997,
-      creator: 'Hondo',
-    },
-    {
-      image:
-        'https://media.istockphoto.com/id/1287491417/vector/rock-music-emblems-retro-label-badge.jpg?s=612x612&w=0&k=20&c=EbuGy-YFw2HgL2iLi8iHadAGf2NyOblAypbjtcauX_A=',
-      price: 500000,
-      title: 1996,
-      creator: 'Hondo',
-    },
-    {
-      image:
-        'https://media.istockphoto.com/id/1287491417/vector/rock-music-emblems-retro-label-badge.jpg?s=612x612&w=0&k=20&c=EbuGy-YFw2HgL2iLi8iHadAGf2NyOblAypbjtcauX_A=',
-      price: 600000,
-      title: 1995,
-      creator: 'Hondo',
-    },
-    {
-      image:
-        'https://media.istockphoto.com/id/1287491417/vector/rock-music-emblems-retro-label-badge.jpg?s=612x612&w=0&k=20&c=EbuGy-YFw2HgL2iLi8iHadAGf2NyOblAypbjtcauX_A=',
-      price: 700000,
-      title: 1994,
-      creator: 'Hondo',
-    },
-    {
-      image:
-        'https://media.istockphoto.com/id/1287491417/vector/rock-music-emblems-retro-label-badge.jpg?s=612x612&w=0&k=20&c=EbuGy-YFw2HgL2iLi8iHadAGf2NyOblAypbjtcauX_A=',
-      price: 800000,
-      title: 1993,
-      creator: 'Hondo',
-    },
-    {
-      image:
-        'https://media.istockphoto.com/id/1287491417/vector/rock-music-emblems-retro-label-badge.jpg?s=612x612&w=0&k=20&c=EbuGy-YFw2HgL2iLi8iHadAGf2NyOblAypbjtcauX_A=',
-      price: 900000,
-      title: 1992,
-      creator: 'Hondo',
-    },
-    {
-      image:
-        'https://media.istockphoto.com/id/1287491417/vector/rock-music-emblems-retro-label-badge.jpg?s=612x612&w=0&k=20&c=EbuGy-YFw2HgL2iLi8iHadAGf2NyOblAypbjtcauX_A=',
-      price: 10000000000,
-      title: 2000,
-      creator: 'Hondo',
-    },
-    {
-      image:
-        'https://media.istockphoto.com/id/1287491417/vector/rock-music-emblems-retro-label-badge.jpg?s=612x612&w=0&k=20&c=EbuGy-YFw2HgL2iLi8iHadAGf2NyOblAypbjtcauX_A=',
-      price: 10000000000,
-      title: 2000,
-      creator: 'Hondo',
-    },
-    {
-      image:
-        'https://media.istockphoto.com/id/1287491417/vector/rock-music-emblems-retro-label-badge.jpg?s=612x612&w=0&k=20&c=EbuGy-YFw2HgL2iLi8iHadAGf2NyOblAypbjtcauX_A=',
-      price: 10000000000,
-      title: 2000,
-      creator: 'Hondo',
-    },
-    {
-      image:
-        'https://media.istockphoto.com/id/1287491417/vector/rock-music-emblems-retro-label-badge.jpg?s=612x612&w=0&k=20&c=EbuGy-YFw2HgL2iLi8iHadAGf2NyOblAypbjtcauX_A=',
-      price: 10000000000,
-      title: 2000,
-      creator: 'Hondo',
-    },
-    {
-      image:
-        'https://media.istockphoto.com/id/1287491417/vector/rock-music-emblems-retro-label-badge.jpg?s=612x612&w=0&k=20&c=EbuGy-YFw2HgL2iLi8iHadAGf2NyOblAypbjtcauX_A=',
-      price: 10000000000,
-      title: 2000,
-      creator: 'Hondo',
-    },
-  ];
+
+  const userSelector = useSelector(state => state.auth);
 
   return (
-    <Box className="lol">
-      {/* <Box className="emptybox"></Box> */}
+    <Box
+      className="containerBox"
+      bgColor={'black'}
+      overflow={'scroll'}
+      height={'100vh'}
+      paddingLeft={'264px'}
+    >
+      <Box className="gridbox" cursor={'pointer'}>
+        <Flex>
+          <Box
+            style={{
+              fontSize: '23px',
+              fontWeight: 'bolder',
+              color: ' white',
+            }}
+          >
+            Recently played
+          </Box>
+        </Flex>
+        <Flex>
+          <Box className="grid">
+            {props?.data?.map((val, idx) => (
+              <Desc {...val} setPlaylist={props.setPlaylist} />
+            ))}
+          </Box>
+        </Flex>
+      </Box>
       <Box className="gridbox">
-        <Box
-          style={{
-            fontSize: '23px',
-            fontWeight: 'bolder',
-            color: ' white',
-            paddingBottom: '30px',
-            paddingLeft: '30px',
-            paddingTop: '20px',
-          }}
-        >
-          Recently played
-        </Box>
+        <Flex>
+          <Box
+            style={{
+              fontSize: '20px',
+              fontWeight: 'bolder',
+              color: ' white',
+            }}
+          >
+            Playlist for @{userSelector?.name}
+          </Box>
+        </Flex>
         <Flex>
           <Box className="grid" cursor={'pointer'}>
             {props?.data?.map((val, idx) => (
@@ -136,22 +64,56 @@ export default function ContentLoad(props) {
 
 function Desc(props) {
   return (
-    <Box onClick={() => props?.setPlaylist(props.list)}>
-      <Box
-        className="logo2"
-        style={!props.highlight ? { justifyContent: 'end' } : null}
-      ></Box>
-      <Box className="bungkus">
-        <Box className="product-image">
-          <img src={props.imgURL} alt="member" />
-        </Box>
-        <Box className="kuning">
-          <Box className="title" style={{ fontSize: '18px' }}>
+    <Flex>
+      <Card className="card" bgColor={'#23272A'} marginBottom={'10px'}>
+        <Box onClick={() => props?.setPlaylist(props.list)}>
+          <Box
+            className="logo2"
+            style={!props.highlight ? { justifyContent: 'end' } : null}
+          ></Box>
+          <CardBody>
+            {' '}
+            <Box>
+              <Box
+                className="playlist-Img"
+                padding={'9px 0px 7px 0px'}
+                display={'flex'}
+                gap={'5px'}
+                maxHeight={'160px'}
+                justifyContent={'center'}
+                alignItems={'center'}
+              >
+                <Image
+                  src={props.imgURL}
+                  alt="member"
+                  width={'280px'}
+                  height={'175px'}
+                  borderRadius={'5px'}
+                />
+              </Box>
+            </Box>
+          </CardBody>
+          <Box
+            className="title"
+            fontWeight={'bold'}
+            color={'white'}
+            paddingLeft={'15px'}
+            style={{ fontSize: '12px' }}
+          >
             {props.playlist}
           </Box>
-          <Box className="creator">{props.desc}</Box>
+          <Box
+            className="creator"
+            color={'grey'}
+            fontSize={'15px'}
+            fontFamily={'sans-serif'}
+            paddingBottom={'10px'}
+            paddingLeft={'15px'}
+          >
+            {props.desc}
+          </Box>
         </Box>
-      </Box>
-    </Box>
+      </Card>
+    </Flex>
   );
 }

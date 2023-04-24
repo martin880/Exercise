@@ -9,10 +9,11 @@ import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 import rootReducer from './redux/store';
 import AuthProvider from './hoc/AuthProvider';
+import thunk from 'redux-thunk';
 
 const container = document.getElementById('root');
 const root = ReactDOM.createRoot(container);
-const store = configureStore({ reducer: rootReducer });
+const store = configureStore({ reducer: rootReducer, middleware: [thunk] });
 
 root.render(
   <Provider store={store}>

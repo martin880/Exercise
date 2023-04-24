@@ -13,13 +13,12 @@ import logo from '../img/spotify-logo2.png';
 import { BsApple, BsFacebook } from 'react-icons/bs';
 import { FcGoogle } from 'react-icons/fc';
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
-// import { TbAlertCircleFilled } from 'react-icons/tb';
 import '../css/Login.css';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { auth_type } from '../redux/types';
-import axios from 'axios';
+import { userLogin } from '../redux/middleware/userauth';
+import { useToast } from '@chakra-ui/react';
 
 export default function LoginPage(props) {
   const nav = useNavigate();
@@ -31,9 +30,7 @@ export default function LoginPage(props) {
     password: '',
   });
 
-  useEffect(() => {
-    // console.log('ada ketikan password baru');
-  }, [account.password]);
+  useEffect(() => {}, [account.password]);
 
   // Proteksi apabila user sudah login tidak bisa kembali ke login page
   useEffect(() => {
@@ -52,24 +49,31 @@ export default function LoginPage(props) {
 
   const [seePassword, setSeePassword] = useState(false);
 
+  const toast = useToast();
+  const positions = ['top-right'];
+
   // karena butuh waktu untuk mendapatkan data dari API maka gunakan async function
   async function login() {
-    await axios
-      .get('http://localhost:2000/user', {
-        params: { email: account.email, password: account.password },
-      })
-      .then(res => {
-        if (res.data.length) {
-          dispatch({
-            type: auth_type.login,
-            payload: res.data[0],
-          });
-          localStorage.setItem('user', JSON.stringify(res.data[0]));
-          return nav('/');
-        } else {
-          alert('email/password salah');
-        }
+    // dipindah ke userauth.js
+    toast.closeAll();
+    const status = await dispatch(userLogin(account));
+    if (status) {
+      toast({
+        title: 'Login Success.',
+        status: 'success',
+        position: positions,
+        duration: 2000,
+        isClosable: true,
       });
+      return nav('/');
+    }
+    return toast({
+      title: 'Wrong Email or Password.',
+      status: 'error',
+      position: positions,
+      duration: 5000,
+      isClosable: true,
+    });
   }
 
   return (

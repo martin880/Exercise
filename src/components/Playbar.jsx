@@ -10,7 +10,6 @@ import {
   SliderTrack,
   SliderFilledTrack,
   SliderThumb,
-  // SliderMark,
 } from '@chakra-ui/react';
 import {
   BiSkipNext,
@@ -18,8 +17,7 @@ import {
   BiSkipPrevious,
   BiRepeat,
 } from 'react-icons/bi';
-// import "../css/playbar.css";
-// import { GoPlay } from 'react-icons/go';
+
 import { AiOutlineHeart } from 'react-icons/ai';
 import {
   BsFillPlayCircleFill,
@@ -29,7 +27,7 @@ import {
 import { TbMicrophone2, TbDevices2 } from 'react-icons/tb';
 import { HiOutlineQueueList } from 'react-icons/hi2';
 import { SlVolume2 } from 'react-icons/sl';
-// import gbr from '../asset/artworkalbummanusia.jpeg';
+
 import { useEffect, useState } from 'react';
 
 export default function Playbar(props) {

@@ -5,15 +5,20 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Center, Spinner, Box, Flex } from '@chakra-ui/react';
 import axios from 'axios';
+import { useSelector } from 'react-redux';
 
 export default function HomePage() {
   let nav = useNavigate();
+
+  const userSelector = useSelector(state => state.auth);
 
   const [loading, setLoading] = useState(true);
 
   const [playlist, setPlaylist] = useState([]);
 
   const [homeplaylist, setHomePlaylist] = useState([]);
+
+  const [sidebarPlaylist, setSideBarPlaylist] = useState([]);
 
   async function fetchData() {
     await axios
@@ -22,6 +27,11 @@ export default function HomePage() {
     await axios
       .get('http://localhost:2000/playlist')
       .then(res => setHomePlaylist(res.data));
+    await axios
+      .get('http://localhost:2000/playlist', {
+        params: { createdBy: userSelector.email },
+      })
+      .then(res => setSideBarPlaylist(res.data));
   }
 
   useEffect(() => {
@@ -33,7 +43,7 @@ export default function HomePage() {
     // if (!user?.email) {
     //   return nav('/login');
     // } // masuk sini pada saat load page
-    setTimeout(() => setLoading(false), 1000);
+    setTimeout(() => setLoading(false), 3000);
   }, []);
 
   return (
@@ -47,7 +57,11 @@ export default function HomePage() {
           <Flex>
             <Playbar key="playbar" playlist={playlist} />
             <Navbar setPlaylist={setPlaylist} data={homeplaylist} />
-            <Sidebar />
+            <Sidebar
+              sidebarPlaylist={sidebarPlaylist}
+              setSideBarPlaylist={setSideBarPlaylist}
+              playlist={playlist}
+            />
           </Flex>
         </Box>
       )}
